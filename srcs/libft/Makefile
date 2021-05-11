@@ -6,7 +6,7 @@
 #    By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 11:44:21 by ldenis            #+#    #+#              #
-#    Updated: 2021/05/11 18:02:02 by fle-biha         ###   ########lyon.fr    #
+#    Updated: 2021/05/11 19:33:55 by fle-biha         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,15 +38,12 @@ LST_OBJS		= $(LST:.c=.o)
 CC				= @gcc
 RM				= @/bin/rm -f
 CFLAGS			= -Wall -Wextra -Werror -I.
-OBJ_PATH		= .obg
 NAME			= libft.a
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS) $(LST_OBJS)
 				@ar rcs $(NAME) $(OBJS) $(LST_OBJS)
-				@mkdir -p ../../.obj
-				@mv $(OBJS) $(LST_OBJS) ../../.obj
 				@echo "LIBFT COMPILED"
 
 clean:

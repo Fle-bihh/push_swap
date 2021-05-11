@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaff.c                                        :+:      :+:    :+:   */
+/*   ft_fill_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 16:32:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 20:22:47 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/11 18:24:43 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/11 20:39:41 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../incs/push_swap.h"
 
-void	ft_lstaff_int(t_list_int *list)
+void	ft_fill_lst_v1(t_list_int **a, char *av)
 {
-	t_list_int *tmp;
-
-	tmp = list;
-	while (tmp != NULL)
+	ft_lstadd_front_int(a, ft_atoi(av));
+	av = ft_strchr(av, ' ');
+	av++;
+	while (av)
 	{
-		dprintf(1, "%d->", tmp->content);
-		tmp = tmp->next;
+		ft_lstadd_back_int(a, ft_atoi(av));
+		av = ft_strchr(av, ' ');
+		if (av)
+			av++;
 	}
-	dprintf(1, "NULL\n");
 }
 
-void	ft_lstaff_color_int(t_list_int *list, char *color)
+void	ft_fill_lst_v2(t_list_int **a, char **av, int ac)
 {
-	t_list_int *tmp;
+	int	i;
 
-	tmp = list;
-	while (tmp != NULL)
-	{
-		dprintf(1, "%s%d\033[0m->", color, tmp->content);
-		tmp = tmp->next;
-	}
-	dprintf(1, "\033[31mNULL\033[0m\n");
+	i = 1;
+	ft_lstadd_front_int(a, ft_atoi(av[1]));
+	while (++i < ac)
+		ft_lstadd_back_int(a, ft_atoi(av[i]));
 }

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   move_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 20:26:20 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/11 18:08:52 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/11 20:42:52 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	push_swap(int ac, char **av)
+t_list_int	*sa(t_list_int *a)
 {
-	t_list_int	*a;
+	int	tmp;
 
-	if (ac == 2)
-		ft_fill_lst_v1(&a, av[1]);
-	else
-		ft_fill_lst_v2(&a, av, ac);
-	ft_lstaff_int(a);
-	//a = sa(a);
-	//ft_lstaff_int(a);
+	tmp = ft_lstn_int(a, 0)->content;
+	ft_dellst_front_int(&a);
+	ft_lstadd_back_int(&a, ft_lstn_int(a, 0)->content);
+	ft_dellst_front_int(&a);
+	ft_lstadd_front_int(&a, tmp);
+	ft_lstadd_front_int(&a, ft_lstlast_int(a)->content);
+	ft_dellst_back_int(&a);
+	return (a);
 }
 
-int	main(int ac, char **av)
+t_list_int	*sb(t_list_int *a, t_list_int *b)
 {
-	if (ac < 2)
-	{
-		ft_putstr_fd("Error\n", 1);
-		return (1);
-	}
-	push_swap(ac, av);
+	int	tmp;
+
+	tmp = a->content;
+	a->content = b->content;
+	b->content = tmp;
 }
