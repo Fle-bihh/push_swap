@@ -6,23 +6,39 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 20:26:20 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 22:23:41 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
+void	ft_aff_ab(t_list_int *a, t_list_int *b)
+{
+	dprintf(1, "\na = ");
+	ft_lstaff_int(a);
+	dprintf(1, "\nb = ");
+	ft_lstaff_int(b);
+	sb(a, b);
+	dprintf(1, "\na = ");
+	ft_lstaff_int(a);
+	dprintf(1, "\nb = ");
+	ft_lstaff_int(b);
+}
+
 void	push_swap(int ac, char **av)
 {
 	t_list_int	*a;
+	t_list_int	*b;
 
 	if (ac == 2)
 		ft_fill_lst_v1(&a, av[1]);
 	else
 		ft_fill_lst_v2(&a, av, ac);
-	ft_lstaff_int(a);
-	//a = sa(a);
-	//ft_lstaff_int(a);
+	int i = -1;
+	b = NULL;
+	while (++i < 5)
+		ft_lstadd_back_int(&b, i);
+	ft_aff_ab(a, b);
 }
 
 int	main(int ac, char **av)

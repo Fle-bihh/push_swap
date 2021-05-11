@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:08:52 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 20:42:52 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/11 22:11:17 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list_int	*sa(t_list_int *a)
 	return (a);
 }
 
-t_list_int	*sb(t_list_int *a, t_list_int *b)
+void	sb(t_list_int *a, t_list_int *b)
 {
 	int	tmp;
 
