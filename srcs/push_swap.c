@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 22:23:41 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/12 14:11:09 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_aff_ab(t_list_int *a, t_list_int *b)
 {
+	(void)b;
 	dprintf(1, "\na = ");
 	ft_lstaff_int(a);
 	dprintf(1, "\nb = ");
 	ft_lstaff_int(b);
-	sb(a, b);
+	ss(&a, &b);
 	dprintf(1, "\na = ");
 	ft_lstaff_int(a);
 	dprintf(1, "\nb = ");

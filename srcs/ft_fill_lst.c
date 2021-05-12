@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:24:43 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/11 20:39:41 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/12 13:52:23 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_fill_lst_v1(t_list_int **a, char *av)
 {
 	ft_lstadd_front_int(a, ft_atoi(av));
 	av = ft_strchr(av, ' ');
-	av++;
+	if (av)
+		av++;
 	while (av)
 	{
 		ft_lstadd_back_int(a, ft_atoi(av));
