@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/12 14:11:09 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/17 14:39:51 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,30 @@ void	ft_aff_ab(t_list_int *a, t_list_int *b)
 {
 	(void)b;
 	dprintf(1, "\na = ");
-	ft_lstaff_int(a);
+	ft_lstaff_color_int(a, "\033[255;184;51m");
 	dprintf(1, "\nb = ");
-	ft_lstaff_int(b);
-	ss(&a, &b);
+	ft_lstaff_color_int(b, "\033[51;233;255m");
+	rrr(&a, &b);
 	dprintf(1, "\na = ");
-	ft_lstaff_int(a);
+	ft_lstaff_color_int(a, "\033[255;184;51m");
 	dprintf(1, "\nb = ");
-	ft_lstaff_int(b);
+	ft_lstaff_color_int(b, "\033[51;233;255m");
 }
 
 void	push_swap(int ac, char **av)
 {
 	t_list_int	*a;
 	t_list_int	*b;
+	t_info		stock;
 
+	ft_bzero(&stock, sizeof(t_info));
 	if (ac == 2)
 		ft_fill_lst_v1(&a, av[1]);
 	else
 		ft_fill_lst_v2(&a, av, ac);
-	int i = -1;
 	b = NULL;
-	while (++i < 5)
-		ft_lstadd_back_int(&b, i);
-	ft_aff_ab(a, b);
+	stock.lst_size = ft_lstsize_int(a);
+	ft_sort(&a, &b, &stock);
 }
 
 int	main(int ac, char **av)

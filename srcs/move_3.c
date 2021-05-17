@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_lst.c                                      :+:      :+:    :+:   */
+/*   move_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 18:24:43 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/17 14:31:53 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/14 12:04:27 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/14 12:08:47 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ft_fill_lst_v1(t_list_int **a, char *av)
+void	rra(t_list_int **a)
 {
-	int	i;
-
-	ft_lstadd_front_int(a, ft_atoi(av));
-	av = ft_strchr(av, ' ');
-	if (av)
-		av++;
-	i = 1;
-	while (av)
-	{
-		ft_lstadd_back_int(a, ft_atoi(av));
-		av = ft_strchr(av, ' ');
-		if (av)
-			av++;
-	}
+	ft_lstadd_front_int(a, ft_lstlast_int(*a)->content);
+	ft_dellst_back_int(a);
 }
 
-void	ft_fill_lst_v2(t_list_int **a, char **av, int ac)
+void	rrb(t_list_int **b)
 {
-	int	i;
+	ft_lstadd_front_int(b, ft_lstlast_int(*b)->content);
+	ft_dellst_back_int(b);
+}
 
-	i = 1;
-	ft_lstadd_front_int(a, ft_atoi(av[1]));
-	while (++i < ac)
-		ft_lstadd_back_int(a, ft_atoi(av[i]));
+void	rrr(t_list_int **a, t_list_int **b)
+{
+	rra(a);
+	rrb(b);
 }

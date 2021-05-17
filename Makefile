@@ -6,12 +6,14 @@
 #    By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/11 17:24:38 by fle-biha          #+#    #+#              #
-#    Updated: 2021/05/11 20:19:21 by fle-biha         ###   ########lyon.fr    #
+#    Updated: 2021/05/17 14:34:16 by fle-biha         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	srcs/push_swap.c srcs/ft_fill_lst.c \
-					srcs/move_1.c
+					srcs/move_1.c srcs/move_2.c \
+					srcs/move_3.c srcs/ft_sort.c \
+					srcs/utils_lst.c srcs/ft_sort_int.c
 
 OBJS			= $(SRCS:.c=.o)
 
