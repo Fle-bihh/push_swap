@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:25:32 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/17 15:56:34 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/19 14:23:18 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,32 +178,528 @@ sinon je le ramene de b
 // 	// dprintf(1, "nmb_ope = %d\n", stock->nmb_ope);
 // }
 
+// void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
+// {
+// 	int	*tab;
+// 	int	tmp;
+// 	int	i;
+// 	int	chunk;
+
+// 	(void)b;
+// 	tab = ft_sort_int(stock, *a);
+// 	ft_put_index(*a, tab);
+// 	ft_lstaff_int(*a);
+// 	stock->nmb_ope = 0;
+// 	i = -1;
+// 	chunk = 1;
+// 	while (++i < chunk * 50)
+// 	{
+// 		tmp = ft_next_int(*a, (chunk * 50 - 50), (chunk * 50 - 1));
+// 		while ((*a)->content != tmp)
+// 		{
+// 			if (ft_pos_int(*a, tmp) > (ft_lstsize_int(*a) / 2))
+// 			{
+// 				rra(a);
+// 				ft_putstr_fd("rra\n", 1);
+// 			}
+// 			else
+// 			{
+// 				ra(a);
+// 				ft_putstr_fd("ra\n", 1);
+// 			}
+// 			stock->nmb_ope++;
+// 		}
+// 		if (*b != NULL)
+// 		{
+// 			if (ft_next_min(*b, tmp) <= tmp)
+// 			{
+// 				while ((*b)->content != ft_max_lst(*b))
+// 				{
+// 					if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 					{
+// 						rb(b);
+// 						ft_putstr_fd("rb\n", 1);
+// 					}
+// 					else
+// 					{
+// 						rrb(b);
+// 						ft_putstr_fd("rrb\n", 1);
+// 					}
+// 					stock->nmb_ope++;
+// 				}
+// 			}
+// 			else
+// 			{
+// 				while ((*b)->content != ft_next_min(*b, tmp))
+// 				{
+// 					if (ft_pos_int(*a, ft_next_min(*b, tmp)) < (ft_lstsize_int(*b) / 2))
+// 					{
+// 						rb(b);
+// 						ft_putstr_fd("rb\n", 1);
+// 					}
+// 					else
+// 					{
+// 						rrb(b);
+// 						ft_putstr_fd("rrb\n", 1);
+// 					}
+// 					stock->nmb_ope++;
+// 				}
+// 				rb(b);
+// 				ft_putstr_fd("rb\n", 1);
+// 				stock->nmb_ope++;
+// 			}
+// 		}
+// 		pb(a, b);
+// 		ft_putstr_fd("pb\n", 1);
+// 		stock->nmb_ope++;
+// 	}
+// 	while ((*b)->content != ft_max_lst(*b))
+// 	{
+// 		if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 		{
+// 			rb(b);
+// 			ft_putstr_fd("rb\n", 1);
+// 		}
+// 		else
+// 		{
+// 			rrb(b);
+// 			ft_putstr_fd("rrb\n", 1);
+// 		}
+// 		stock->nmb_ope++;
+// 	}
+// 	while (ft_lstsize_int(*b) > 0)
+// 	{
+// 		pa(a, b);
+// 		ft_putstr_fd("pa\n", 1);
+// 		stock->nmb_ope++;
+// 	}
+// 	chunk++;
+// 	i--;
+// 	while (chunk <= 9)
+// 	{
+// 		while (++i < chunk * 50)
+// 		{
+// 			tmp = ft_next_int(*a, (chunk * 50 - 50), (chunk * 50 - 1));
+// 			while ((*a)->content != tmp)
+// 			{
+// 				if (ft_pos_int(*a, tmp) > (ft_lstsize_int(*a) / 2))
+// 				{
+// 					rra(a);
+// 					ft_putstr_fd("rra\n", 1);
+// 				}
+// 				else
+// 				{
+// 					ra(a);
+// 					ft_putstr_fd("ra\n", 1);
+// 				}
+// 				stock->nmb_ope++;
+// 			}
+// 			if (*b != NULL)
+// 			{
+// 				if (ft_next_min(*b, tmp) <= tmp)
+// 				{
+// 					while ((*b)->content != ft_max_lst(*b))
+// 					{
+// 						if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 						{
+// 							rb(b);
+// 							ft_putstr_fd("rb\n", 1);
+// 						}
+// 						else
+// 						{
+// 							rrb(b);
+// 							ft_putstr_fd("rrb\n", 1);
+// 						}
+// 						stock->nmb_ope++;
+// 					}
+// 				}
+// 				else
+// 				{
+// 					while ((*b)->content != ft_next_min(*b, tmp))
+// 					{
+// 						if (ft_pos_int(*a, ft_next_min(*b, tmp)) < (ft_lstsize_int(*b) / 2))
+// 						{
+// 							rb(b);
+// 							ft_putstr_fd("rb\n", 1);
+// 						}
+// 						else
+// 						{
+// 							rrb(b);
+// 							ft_putstr_fd("rrb\n", 1);
+// 						}
+// 						stock->nmb_ope++;
+// 					}
+// 					rb(b);
+// 					ft_putstr_fd("rb\n", 1);
+// 					stock->nmb_ope++;
+// 				}
+// 			}
+// 			pb(a, b);
+// 			ft_putstr_fd("pb\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 		while ((*b)->content != ft_max_lst(*b))
+// 		{
+// 			if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 			{
+// 				rb(b);
+// 				ft_putstr_fd("rb\n", 1);
+// 			}
+// 			else
+// 			{
+// 				rrb(b);
+// 				ft_putstr_fd("rrb\n", 1);
+// 			}
+// 			stock->nmb_ope++;
+// 		}
+// 		while ((*a)->content != ((chunk - 1) * 50 - 1))
+// 		{
+// 			if (ft_pos_int(*a, ((chunk - 1) * 50 - 1)) < (ft_lstsize_int(*a) / 2))
+// 			{
+// 				ra(a);
+// 				ft_putstr_fd("ra\n", 1);
+// 			}
+// 			else
+// 			{
+// 				rra(a);
+// 				ft_putstr_fd("rra\n", 1);
+// 			}
+// 			stock->nmb_ope++;
+// 		}
+// 		ra(a);
+// 		ft_putstr_fd("ra\n", 1);
+// 		stock->nmb_ope++;
+// 		while (ft_lstsize_int(*b) > 0)
+// 		{
+// 			pa(a, b);
+// 			ft_putstr_fd("pa\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 		chunk++;
+// 		i--;
+// 	}
+// 	ft_lstaff_int(*a);
+// 	dprintf(1, "\n%d\n", stock->nmb_ope);
+// }
+
+// void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
+// {
+// 	int	*tab;
+// 	int	tmp;
+// 	int	i;
+// 	int	chunk;
+
+// 	tab = ft_sort_int(stock, *a);
+// 	ft_put_index(*a, tab);
+// 	stock->nmb_ope = 0;
+// 	i = -1;
+// 	chunk = 10;
+// 	while (chunk > 1)
+// 	{
+// 		while (ft_lstsize_int(*b) < 50)
+// 		{
+// 			tmp = (*a)->content;
+// 			if (tmp > (chunk * 50 - 50) && tmp <= (chunk * 50))
+// 			{
+// 				if (*b != NULL)
+// 				{
+// 					if (ft_next_min(*b, tmp) <= tmp)
+// 					{
+// 						while ((*b)->content != ft_max_lst(*b))
+// 						{
+// 							if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 							{
+// 								rb(b);
+// 								ft_putstr_fd("rb\n", 1);
+// 							}
+// 							else
+// 							{
+// 								rrb(b);
+// 								ft_putstr_fd("rrb\n", 1);
+// 							}
+// 							stock->nmb_ope++;
+// 						}
+// 					}
+// 					else
+// 					{
+// 						while ((*b)->content != ft_next_min(*b, tmp))
+// 						{
+// 							if (ft_pos_int(*a, ft_next_min(*b, tmp)) < (ft_lstsize_int(*b) / 2))
+// 							{
+// 								rb(b);
+// 								ft_putstr_fd("rb\n", 1);
+// 							}
+// 							else
+// 							{
+// 								rrb(b);
+// 								ft_putstr_fd("rrb\n", 1);
+// 							}
+// 							stock->nmb_ope++;
+// 						}
+// 						rb(b);
+// 						ft_putstr_fd("rb\n", 1);
+// 						stock->nmb_ope++;
+// 					}
+// 				}
+// 				pb(a, b);
+// 				ft_putstr_fd("pb\n", 1);
+// 				stock->nmb_ope++;
+// 			}
+// 			else
+// 			{
+// 				ra(a);
+// 				ft_putstr_fd("ra\n", 1);
+// 				stock->nmb_ope++;
+// 			}
+// 		}
+// 		while ((*b)->content != ft_max_lst(*b))
+// 		{
+// 			if (ft_pos_int(*b, ft_max_lst(*b)) < ft_lstsize_int(*b) / 2)
+// 			{
+// 				rb(b);
+// 				ft_putstr_fd("rb\n", 1);
+// 			}
+// 			else
+// 			{
+// 				rrb(b);
+// 				ft_putstr_fd("rrb\n", 1);
+// 			}
+// 			stock->nmb_ope++;
+// 		}
+// 		if (chunk < 10)
+// 		{
+// 			while ((*a)->content != (chunk - 1) * 50 - 1)
+// 			{
+// 				if (ft_pos_int(*a, (chunk - 1) * 50 - 1) < ft_lstsize_int(*a) / 2)
+// 				{
+// 					ra(a);
+// 					ft_putstr_fd("ra\n", 1);
+// 				}
+// 				else
+// 				{
+// 					rra(a);
+// 					ft_putstr_fd("rra\n", 1);
+// 				}
+// 				stock->nmb_ope++;
+// 			}
+// 			ra(a);
+// 			ft_putstr_fd("ra\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 		while (ft_lstsize_int(*b) > 0)
+// 		{
+// 			pa(a, b);
+// 			ft_putstr_fd("pa\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 		chunk--;
+// 	}
+// 	while (ft_lstsize_int(*b) < 49)
+// 	{
+// 		tmp = (*a)->content;
+// 		if (tmp > (chunk * 50 - 50) && tmp <= (chunk * 50))
+// 		{
+// 			if (*b != NULL)
+// 			{
+// 				if (ft_next_min(*b, tmp) <= tmp)
+// 				{
+// 					while ((*b)->content != ft_max_lst(*b))
+// 					{
+// 						if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+// 						{
+// 							rb(b);
+// 							ft_putstr_fd("rb\n", 1);
+// 						}
+// 						else
+// 						{
+// 							rrb(b);
+// 							ft_putstr_fd("rrb\n", 1);
+// 						}
+// 						stock->nmb_ope++;
+// 					}
+// 				}
+// 				else
+// 				{
+// 					while ((*b)->content != ft_next_min(*b, tmp))
+// 					{
+// 						if (ft_pos_int(*a, ft_next_min(*b, tmp)) < (ft_lstsize_int(*b) / 2))
+// 						{
+// 							rb(b);
+// 						ft_putstr_fd("rb\n", 1);
+// 						}
+// 						else
+// 						{
+// 							rrb(b);
+// 							ft_putstr_fd("rrb\n", 1);
+// 						}
+// 						stock->nmb_ope++;
+// 					}
+// 					rb(b);
+// 					ft_putstr_fd("rb\n", 1);
+// 					stock->nmb_ope++;
+// 			}
+// 		}
+// 			pb(a, b);
+// 			ft_putstr_fd("pb\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 		else
+// 		{
+// 			ra(a);
+// 			ft_putstr_fd("ra\n", 1);
+// 			stock->nmb_ope++;
+// 		}
+// 	}
+// 	while ((*b)->content != ft_max_lst(*b))
+// 	{
+// 		if (ft_pos_int(*b, ft_max_lst(*b)) < ft_lstsize_int(*b) / 2)
+// 		{
+// 			rb(b);
+// 			ft_putstr_fd("rb\n", 1);
+// 		}
+// 		else
+// 		{
+// 			rrb(b);
+// 			ft_putstr_fd("rrb\n", 1);
+// 		}
+// 		stock->nmb_ope++;
+// 	}
+// 	if (chunk < 10)
+// 	{
+// 		while ((*a)->content != (chunk - 1) * 50 - 1)
+// 		{
+// 			if (ft_pos_int(*a, (chunk - 1) * 50 - 1) < ft_lstsize_int(*a) / 2)
+// 			{
+// 				ra(a);
+// 				ft_putstr_fd("ra\n", 1);
+// 			}
+// 			else
+// 			{
+// 				rra(a);
+// 				ft_putstr_fd("rra\n", 1);
+// 		}
+// 		stock->nmb_ope++;
+// 		}
+// 		ra(a);
+// 		ft_putstr_fd("ra\n", 1);
+// 		stock->nmb_ope++;
+// 	}
+// 	while (ft_lstsize_int(*b) > 0)
+// 	{
+// 		pa(a, b);
+// 		ft_putstr_fd("pa\n", 1);
+// 		stock->nmb_ope++;
+// 	}
+// 	chunk--;
+// 	ft_lstaff_int(*a);
+// 	ft_lstaff_int(*b);
+// }
+
 void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 {
 	int	*tab;
-	int	i;
+	int	chunk;
+	int	tmp;
 
-	(void)b;
 	tab = ft_sort_int(stock, *a);
 	ft_put_index(*a, tab);
-	ft_lstaff_int(*a);
-	stock->nmb_ope = 0;
-	i = -1;
-	while (++i < 50)
+	chunk = 10;
+	while (chunk > 0)
 	{
-		while ((*a)->content != ft_next_int(*a, 0, 49))
+		while (ft_lstsize_int(*b) < 50)
 		{
-			if (ft_pos_int(*a, ft_next_int(*a, 0, 49)) > (ft_lstsize_int(*a) / 2))
+			tmp = (*a)->content;
+			if (tmp > (chunk * 50 - 50) && tmp <= (chunk * 50))
 			{
-				rra(a);
-				ft_putstr_fd("rra\n", 1);
+				if (*b != NULL)
+				{
+					if (ft_next_min(*b, tmp) <= tmp)
+					{
+						while ((*b)->content != ft_max_lst(*b))
+						{
+							if (ft_pos_int(*a, ft_max_lst(*b)) < (ft_lstsize_int(*b) / 2))
+							{
+								rb(b);
+								ft_putstr_fd("rb\n", 1);
+							}
+							else
+							{
+								rrb(b);
+								ft_putstr_fd("rrb\n", 1);
+							}
+							stock->nmb_ope++;
+						}
+					}
+					else
+					{
+						while ((*b)->content != ft_next_min(*b, tmp))
+						{
+							if (ft_pos_int(*a, ft_next_min(*b, tmp)) < (ft_lstsize_int(*b) / 2))
+							{
+								rb(b);
+								ft_putstr_fd("rb\n", 1);
+							}
+							else
+							{
+								rrb(b);
+								ft_putstr_fd("rrb\n", 1);
+							}
+							stock->nmb_ope++;
+						}
+						rb(b);
+						ft_putstr_fd("rb\n", 1);
+						stock->nmb_ope++;
+					}
+				}
+				pb(a, b);
+				ft_putstr_fd("pb\n", 1);
+				stock->nmb_ope++;
 			}
 			else
 			{
-				ra(a);
-				ft_putstr_fd("ra\n", 1);
+				rra(a);
+				ft_putstr_fd("rra\n", 1);
+				stock->nmb_ope++;
+			}
+		}
+		if (chunk < 5)
+		{
+			while ((*a)->content != (chunk * 50 + 1))
+			{
+				if (ft_pos_int(*a, (chunk * 50 + 1)) < ft_lstsize_int(*a) / 2)
+				{
+					ra(a);
+					ft_putstr_fd("ra\n", 1);
+				}
+				else
+				{
+					rra(a);
+					ft_putstr_fd("rra\n", 1);
+				}
+				stock->nmb_ope++;
+			}
+		}
+		while ((*b)->content != ft_max_lst(*b))
+		{
+			if (ft_pos_int(*b, ft_max_lst(*b)) < ft_lstsize_int(*b) / 2)
+			{
+				rb(b);
+				ft_putstr_fd("rb\n", 1);
+			}
+			else
+			{
+				rrb(b);
+				ft_putstr_fd("rrb\n", 1);
 			}
 			stock->nmb_ope++;
 		}
+		while (ft_lstsize_int(*b) > 0)
+		{
+			pa(a, b);
+			ft_putstr_fd("pa\n", 1);
+			stock->nmb_ope++;
+		}
+		chunk--;
 	}
+	dprintf(1, "nmb_ope = %d\n", stock->nmb_ope);
 }
