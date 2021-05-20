@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:25:32 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/19 14:23:18 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 13:42:20 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -600,6 +600,8 @@ void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 	int	*tab;
 	int	chunk;
 	int	tmp;
+	int	i;
+	// int	order[10];
 
 	tab = ft_sort_int(stock, *a);
 	ft_put_index(*a, tab);
@@ -662,7 +664,7 @@ void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 				stock->nmb_ope++;
 			}
 		}
-		if (chunk < 5)
+		if (chunk < 10)
 		{
 			while ((*a)->content != (chunk * 50 + 1))
 			{
