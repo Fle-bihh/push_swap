@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:25:32 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/20 13:42:20 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/20 14:47:36 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -601,13 +601,24 @@ void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 	int	chunk;
 	int	tmp;
 	int	i;
-	// int	order[10];
+	int	order[10];
 
 	tab = ft_sort_int(stock, *a);
 	ft_put_index(*a, tab);
-	chunk = 10;
-	while (chunk > 0)
+	order[0] = 10;
+	order[1] = 1;
+	order[2] = 9;
+	order[3] = 2;
+	order[4] = 8;
+	order[5] = 3;
+	order[6] = 7;
+	order[7] = 4;
+	order[8] = 6;
+	order[9] = 5;
+	i = 0;
+	while (i < 10)
 	{
+		chunk = order[i];
 		while (ft_lstsize_int(*b) < 50)
 		{
 			tmp = (*a)->content;
@@ -659,12 +670,61 @@ void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 			}
 			else
 			{
-				rra(a);
-				ft_putstr_fd("rra\n", 1);
-				stock->nmb_ope++;
+				if (chunk <= 5)
+				{
+					rra(a);
+					ft_putstr_fd("rra\n", 1);
+					stock->nmb_ope++;
+				}
+				else
+				{
+					ra(a);
+					ft_putstr_fd("ra\n", 1);
+					stock->nmb_ope++;
+				}
 			}
 		}
-		if (chunk < 10)
+		if (chunk == 1)
+		{
+			while ((*a)->content != 500)
+			{
+				if (ft_pos_int(*a, 500) < ft_lstsize_int(*a) / 2)
+				{
+					ra(a);
+					ft_putstr_fd("ra\n", 1);
+				}
+				else
+				{
+					rra(a);
+					ft_putstr_fd("rra\n", 1);
+				}
+				stock->nmb_ope++;
+			}
+			ra(a);
+			ft_putstr_fd("ra\n", 1);
+			stock->nmb_ope++;
+		}
+		else if (chunk <= 5)
+		{
+			while ((*a)->content != (chunk * 50 - 50))
+			{
+				if (ft_pos_int(*a, (chunk * 50 - 50)) < ft_lstsize_int(*a) / 2)
+				{
+					ra(a);
+					ft_putstr_fd("ra\n", 1);
+				}
+				else
+				{
+					rra(a);
+					ft_putstr_fd("rra\n", 1);
+				}
+				stock->nmb_ope++;
+			}
+			ra(a);
+			ft_putstr_fd("ra\n", 1);
+			stock->nmb_ope++;
+		}
+		else if (chunk != 10)
 		{
 			while ((*a)->content != (chunk * 50 + 1))
 			{
@@ -701,7 +761,7 @@ void	ft_sort(t_list_int **a, t_list_int **b, t_info *stock)
 			ft_putstr_fd("pa\n", 1);
 			stock->nmb_ope++;
 		}
-		chunk--;
+		i++;
 	}
 	dprintf(1, "nmb_ope = %d\n", stock->nmb_ope);
 }
