@@ -6,14 +6,17 @@
 #    By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/11 17:24:38 by fle-biha          #+#    #+#              #
-#    Updated: 2021/05/17 14:34:16 by fle-biha         ###   ########lyon.fr    #
+#    Updated: 2021/05/25 15:26:08 by fle-biha         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	srcs/push_swap.c srcs/ft_fill_lst.c \
 					srcs/move_1.c srcs/move_2.c \
-					srcs/move_3.c srcs/ft_sort.c \
-					srcs/utils_lst.c srcs/ft_sort_int.c
+					srcs/move_3.c srcs/ft_sort_500.c \
+					srcs/utils_lst.c srcs/ft_sort_int.c \
+					srcs/ft_sort_100.c srcs/ft_sort_3.c \
+					srcs/ft_sort_4_5.c srcs/ft_sort.c \
+					srcs/ft_parsing.c
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -23,7 +26,7 @@ CFLAGS			= -Wall -Wextra -Werror -I.
 
 NAME			= push_swap
 
-LIBFT			= srcs/libft/libft.a
+LIBFT			= libft/libft.a
 
 all:			$(NAME)
 
@@ -32,15 +35,15 @@ $(NAME):		compilation $(OBJS)
 				@echo "PUSH_SWAP COMPILED"
 
 compilation:
-				@make -C srcs/libft
+				@make -C libft
 
 clean:
-				@make clean -C srcs/libft
+				@make clean -C libft
 				$(RM) $(OBJS)
 				@echo "CLEAN"
 
 fclean:			clean
-				@make fclean -C srcs/libft
+				@make fclean -C libft
 				$(RM) $(NAME)
 				@echo "VERY CLEAN"
 

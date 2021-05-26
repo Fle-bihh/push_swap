@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/11/24 11:48:28 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:11:34 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	len;
+	unsigned char	*tmp_dest;
+	unsigned char	*tmp_src;
+	size_t			i_tmp;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	tmp_dest = (unsigned char *)dest;
+	tmp_src = (unsigned char *)src;
+	if (dest == 0 && src == 0)
+		return (dest);
+	i_tmp = -1;
+	while (++i_tmp < n)
+		tmp_dest[i_tmp] = tmp_src[i_tmp];
+	return (dest);
 }

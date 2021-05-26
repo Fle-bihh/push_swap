@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstaff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:56:35 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/11 16:32:49 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:16:31 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "../libft.h"
 
-void	push_swap(int ac, char **av)
+void	ft_lstaff_int(t_list_int *list)
 {
-	t_list_int	*a;
-	t_list_int	*b;
+	t_list_int	*tmp;
 
-	b = NULL;
-	ft_parsing(ac, av);
-	ft_fill_lst(&a, av, ac);
-	if (ft_is_sorted(a))
-		exit(0);
-	ft_sort(&a, &b);
-	ft_lstclear_int(&a);
+	tmp = list;
+	while (tmp != NULL)
+	{
+		dprintf(1, "%d->", tmp->content);
+		tmp = tmp->next;
+	}
+	dprintf(1, "NULL\n");
 }
 
-int	main(int ac, char **av)
+void	ft_lstaff_color_int(t_list_int *list, char *color)
 {
-	if (ac < 2)
+	t_list_int	*tmp;
+
+	tmp = list;
+	while (tmp != NULL)
 	{
-		ft_putstr_fd("Error\n", 1);
-		return (1);
+		dprintf(1, "%s%d\033[0m->", color, tmp->content);
+		tmp = tmp->next;
 	}
-	push_swap(ac, av);
+	dprintf(1, "\033[31mNULL\033[0m\n");
 }

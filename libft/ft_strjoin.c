@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/11/25 16:14:10 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:14:02 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	len;
+	char	*new_s;
+	size_t	len_s;
+	int		i_s;
+	int		i_s2;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	len_s = ft_strlen(s1) + ft_strlen(s2) + 1;
+	new_s = (char *)malloc(sizeof(char) * len_s);
+	if (!(new_s))
+		return (0);
+	i_s = -1;
+	while (s1[++i_s])
+		new_s[i_s] = s1[i_s];
+	i_s2 = -1;
+	while (s2[++i_s2])
+		new_s[i_s++] = s2[i_s2];
+	new_s[i_s] = 0;
+	return (new_s);
 }

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/11/28 16:01:11 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:10:41 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	len;
+	t_list		*new_lst;
+	t_list		*tmp;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	new_lst = NULL;
+	while (lst)
+	{
+		tmp = ft_lstnew((*f)(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&new_lst, (*del));
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, tmp);
+		lst = lst->next;
+	}
+	return (new_lst);
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/12/02 16:05:48 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:11:27 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	len;
+	unsigned char	*tmp_s1;
+	unsigned char	*tmp_s2;
+	int				i_s1;
+	int				i_s2;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	tmp_s1 = (unsigned char *)s1;
+	tmp_s2 = (unsigned char *)s2;
+	i_s1 = 0;
+	i_s2 = 0;
+	while (n--)
+	{
+		if (tmp_s1[i_s1] != tmp_s2[i_s2])
+			return (tmp_s1[i_s1] - tmp_s2[i_s2]);
+		i_s1++;
+		i_s2++;
+	}
+	return (0);
 }

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/12/02 16:06:45 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:14:16 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size_dst)
 {
-	int	len;
+	size_t		size_src;
+	size_t		i_s;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	size_src = ft_strlen(src);
+	if (size_dst == 0)
+		return (size_src);
+	i_s = -1;
+	while (++i_s < size_dst - 1 && src[i_s])
+		dst[i_s] = src[i_s];
+	dst[i_s] = 0;
+	return (size_src);
 }

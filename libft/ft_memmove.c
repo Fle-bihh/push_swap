@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/11/25 10:39:36 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:11:38 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	len;
+	char	*tmp_dst;
+	char	*tmp_src;
+	size_t	i_tmp;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
+	tmp_dst = (char *)dst;
+	tmp_src = (char *)src;
+	if (dst == 0 && src == 0)
+		return (dst);
+	i_tmp = 0;
+	if (dst > src)
+	{
+		while (len-- > 0)
+			tmp_dst[len] = tmp_src[len];
+	}
 	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	{
+		while (i_tmp < len)
+		{
+			tmp_dst[i_tmp] = tmp_src[i_tmp];
+			i_tmp++;
+		}
+	}
+	return (dst);
 }

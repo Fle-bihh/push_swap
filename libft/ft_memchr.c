@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2020/11/24 12:46:11 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/25 15:11:22 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	ft_sort(t_list_int **a, t_list_int **b)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	len;
+	unsigned char	*tmp;
+	size_t			i_tmp;
+	size_t			i_n;
 
-	len = ft_lstsize_int(*a);
-	if (len == 3)
-		ft_sort_3(a);
-	else if (len <= 5)
-		ft_sort_4_5(a, b);
-	else if (len <= 200)
-		ft_sort_100(a, b);
-	else
-		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
+	tmp = (unsigned char *)s;
+	if (n == 0)
+		return (NULL);
+	if (c == 0)
+		return ((void *)s + ft_strlen(s));
+	i_tmp = 0;
+	i_n = 0;
+	while (i_n < n)
+	{
+		if (tmp[i_tmp] == (unsigned char)c)
+			return ((void *)tmp + i_tmp);
+		i_n++;
+		i_tmp++;
+	}
+	return (0);
 }

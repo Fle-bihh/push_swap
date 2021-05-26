@@ -6,13 +6,13 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:47:31 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/16 11:14:39 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/25 15:21:37 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-int		ft_is_sorted(t_list_int *a)
+int	ft_is_sorted(t_list_int *a)
 {
 	while (a != NULL && a->next != NULL)
 	{
@@ -23,7 +23,7 @@ int		ft_is_sorted(t_list_int *a)
 	return (1);
 }
 
-int		ft_min_lst(t_list_int *a)
+int	ft_min_lst(t_list_int *a)
 {
 	int	min;
 
@@ -37,7 +37,7 @@ int		ft_min_lst(t_list_int *a)
 	return (min);
 }
 
-int		ft_max_lst(t_list_int *a)
+int	ft_max_lst(t_list_int *a)
 {
 	int	max;
 
@@ -51,11 +51,11 @@ int		ft_max_lst(t_list_int *a)
 	return (max);
 }
 
-int		ft_next_min(t_list_int *a, int min)
+int	ft_next_min(t_list_int *a, int min)
 {
 	int	next_min;
 
-	if (ft_lstsize_int(a) < 2)
+	if (ft_lstsize_int(a) < 1)
 		return (min);
 	next_min = ft_max_lst(a);
 	while (a != NULL)
@@ -67,9 +67,9 @@ int		ft_next_min(t_list_int *a, int min)
 	return (next_min);
 }
 
-int		ft_pos_int(t_list_int *a, int d)
+int	ft_pos_int(t_list_int *a, int d)
 {
-	int pos;
+	int	pos;
 
 	pos = 1;
 	while (a != NULL)

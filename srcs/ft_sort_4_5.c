@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort_4_5.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:56:35 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/23 10:43:19 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/23 12:01:14 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	push_swap(int ac, char **av)
+void	ft_sort_4_5(t_list_int **a, t_list_int **b)
 {
-	t_list_int	*a;
-	t_list_int	*b;
+	int	i;
 
-	b = NULL;
-	ft_parsing(ac, av);
-	ft_fill_lst(&a, av, ac);
-	if (ft_is_sorted(a))
-		exit(0);
-	ft_sort(&a, &b);
-	ft_lstclear_int(&a);
-}
-
-int	main(int ac, char **av)
-{
-	if (ac < 2)
+	if (ft_lstsize_int(*a) == 5)
+		pb(a, b);
+	if (ft_lstsize_int(*a) == 4)
+		pb(a, b);
+	ft_sort_3(a);
+	i = -1;
+	while (++i < 2)
 	{
-		ft_putstr_fd("Error\n", 1);
-		return (1);
+		if (*b != NULL)
+		{
+			if ((*b)->content > ft_max_lst(*a))
+				while ((*a)->content != ft_min_lst(*a))
+					ra(a);
+			else
+				while ((*a)->content != ft_next_min(*a, (*b)->content))
+					ra(a);
+			pa(a, b);
+		}
 	}
-	push_swap(ac, av);
+	while ((*a)->content != ft_min_lst(*a))
+		ra(a);
 }
