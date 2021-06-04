@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 16:06:24 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:13:37 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:22:18 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 	i_s = 0;
 	new_s = (char *)malloc(sizeof(char) * size + 1);
 	if (!(new_s))
-		return (0);
+		ft_error_malloc();
 	while (i_s < size)
 	{
 		new_s[i_s] = s1[i_s];

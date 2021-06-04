@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 11:27:08 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:47:05 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:05:46 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	ft_sort(t_list_int **a, t_list_int **b)
 		ft_sort_100(a, b);
 	else
 		ft_sort_500(a, b);
-	ft_lstaff_int(*a);
 }

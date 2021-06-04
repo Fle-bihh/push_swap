@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:06:03 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:25:12 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:32:25 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,8 @@ void		ft_sort(t_list_int **a, t_list_int **b);
 void		ft_parsing(int ac, char **av);
 void		ft_parse_2(int ac, char **av);
 void		ft_parse_1(char **av);
+
+//	`FT_VERIF_DUPLICATE.C
+void		ft_verif_duplicate(t_list_int *a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:54:45 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:12:52 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:22:05 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**ft_split(char const *s, char set)
 	nbr_w = ft_count_w(s, set);
 	new_s = ft_calloc(sizeof(char *), nbr_w + 1);
 	if (!(new_s))
-		return (0);
+		ft_error_malloc();
 	while (++i_new_s < nbr_w)
 	{
 		while (*s == set)

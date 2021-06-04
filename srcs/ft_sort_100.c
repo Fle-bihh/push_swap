@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 09:32:11 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:55:38 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/31 15:20:30 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ void	ft_sort_100_b(t_list_int **a, t_list_int **b)
 	int	chunk;
 	int	i;
 	int	div;
+	int	tmp;
 
 	chunk = 1;
 	div = ft_lstsize_int(*a) / 4;
-	while (chunk <= 4)
+	while (*a != NULL)
 	{
 		i = 0;
-		if (ft_lstsize_int(*a) < div)
-			div = ft_lstsize_int(*a);
-		while (i < div)
+		tmp = ((ft_lstsize_int(*a) < div) * ft_lstsize_int(*a)) \
+		 + (!(ft_lstsize_int(*a) < div) * div);
+		while (i < tmp)
 		{
 			if ((*a)->content > (chunk * div - div) \
 			&& (*a)->content <= (chunk * div))

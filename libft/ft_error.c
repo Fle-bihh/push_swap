@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/06/03 14:28:44 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/28 10:12:20 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/05/28 10:13:22 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "libft.h"
 
-void	push_swap(int ac, char **av)
+void	ft_error(void)
 {
-	t_list_int	*a;
-	t_list_int	*b;
-
-	b = NULL;
-	ft_parsing(ac, av);
-	ft_fill_lst(&a, av, ac);
-	ft_verif_duplicate(a);
-	if (ft_is_sorted(a))
-		exit(0);
-	ft_sort(&a, &b);
-	ft_lstclear_int(&a);
+	ft_putstr_fd("Error\n", 1);
+	exit(0);
 }
 
-int	main(int ac, char **av)
+void	ft_error_malloc(void)
 {
-	if (ac < 2)
-		return (1);
-	push_swap(ac, av);
+	ft_putstr_fd("Error malloc\n", 1);
+	exit(0);
 }

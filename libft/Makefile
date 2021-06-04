@@ -6,7 +6,7 @@
 #    By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 11:44:21 by ldenis            #+#    #+#              #
-#    Updated: 2021/05/25 13:37:36 by fle-biha         ###   ########lyon.fr    #
+#    Updated: 2021/05/31 13:01:46 by fle-biha         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memccpy.c \
 					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
-					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_atol.c
+					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_atol.c \
+					ft_error.c
 OBJS			= $(SRCS:.c=.o)
 
 LST			=	ft_lstnew.c ft_lstadd_front.c \
@@ -36,20 +37,34 @@ LST			=	ft_lstnew.c ft_lstadd_front.c \
 LST_OBJS		= $(LST:.c=.o)
 
 CC				= @gcc
+
 RM				= @/bin/rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+
+CFLAGS			= -Wall -Wextra -Werror
+
 NAME			= libft.a
+
+HEADER			= libft.h
+
+.c.o:			$(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all:			$(NAME)
 
+$(OBJS):		$(HEADER)
+
 $(NAME):		$(OBJS) $(LST_OBJS)
-				@ar rcs $(NAME) $(OBJS) $(LST_OBJS)
+				@ar rcs $(NAME) $?
 				@echo "LIBFT COMPILED"
 
 clean:
 				$(RM) $(OBJS) $(LST_OBJS)
+				@echo "LIBFT CLEAN"
 
 fclean:			clean
 				$(RM) $(NAME)
+				@echo "LIBFT FCLEAN"
 
-re:				fclean $(NAME)
+re:				fclean all
+
+.PHONY:			all clean fclean re

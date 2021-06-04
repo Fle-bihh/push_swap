@@ -6,17 +6,11 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 12:03:25 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/26 13:34:03 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:14:30 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
-
-static void	ft_error(void)
-{
-	ft_putstr_fd("Error\n", 1);
-	exit(0);
-}
 
 void	ft_parse_1(char **av)
 {

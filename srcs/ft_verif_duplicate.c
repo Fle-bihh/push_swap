@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_verif_duplicate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 11:05:49 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/06/03 14:28:44 by fle-biha         ###   ########lyon.fr   */
+/*   Created: 2021/05/28 10:09:48 by fle-biha          #+#    #+#             */
+/*   Updated: 2021/06/03 14:26:59 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	push_swap(int ac, char **av)
+void	ft_verif_duplicate(t_list_int *a)
 {
-	t_list_int	*a;
-	t_list_int	*b;
+	int	*tab;
+	int	len;
+	int	i;
+	int	i2;
 
-	b = NULL;
-	ft_parsing(ac, av);
-	ft_fill_lst(&a, av, ac);
-	ft_verif_duplicate(a);
-	if (ft_is_sorted(a))
-		exit(0);
-	ft_sort(&a, &b);
-	ft_lstclear_int(&a);
-}
-
-int	main(int ac, char **av)
-{
-	if (ac < 2)
-		return (1);
-	push_swap(ac, av);
+	len = ft_lstsize_int(a);
+	tab = malloc(sizeof(int) * len);
+	if (!(tab))
+		ft_error_malloc();
+	i = 0;
+	while (a != NULL)
+	{
+		i2 = -1;
+		while (++i2 < i)
+			if (tab[i2] == a->content)
+				ft_error();
+		tab[i] = a->content;
+		i++;
+		a = a->next;
+	}
+	free(tab);
 }

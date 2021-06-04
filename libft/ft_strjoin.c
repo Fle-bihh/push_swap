@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 16:14:10 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:14:02 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:22:25 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	len_s = ft_strlen(s1) + ft_strlen(s2) + 1;
 	new_s = (char *)malloc(sizeof(char) * len_s);
 	if (!(new_s))
-		return (0);
+		ft_error_malloc();
 	i_s = -1;
 	while (s1[++i_s])
 		new_s[i_s] = s1[i_s];

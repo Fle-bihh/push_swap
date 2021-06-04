@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 12:44:32 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:11:04 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:21:28 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(void *content)
 
 	lst = (t_list *)malloc(sizeof(t_list));
 	if (!(lst))
-		return (0);
+		ft_error_malloc();
 	lst->content = content;
 	lst->next = NULL;
 	return (lst);

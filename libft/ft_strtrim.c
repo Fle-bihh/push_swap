@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:02:52 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:15:28 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:23:01 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i_end--;
 	new_s = (char *)malloc(sizeof(char) * (i_end - i_s + 2));
 	if (!(new_s))
-		return (0);
+		ft_error_malloc();
 	if (!(s1[i_s]))
 	{
 		new_s[0] = 0;

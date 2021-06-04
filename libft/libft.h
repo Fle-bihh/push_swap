@@ -6,7 +6,7 @@
 /*   By: fle-biha <fle-biha@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 11:49:57 by fle-biha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:22:49 by fle-biha         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 10:13:59 by fle-biha         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ t_list_int			*ft_lstlast_int(t_list_int *lst);
 t_list_int			*ft_lstn_int(t_list_int *lst, int n);
 int					ft_lstsize_int(t_list_int *lst);
 long				ft_atol(const char *str);
+void				ft_error(void);
+void				ft_error_malloc(void);
 
 #endif
